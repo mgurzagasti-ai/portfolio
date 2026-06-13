@@ -35,6 +35,12 @@
   font-size: 0.94rem;
 }
 
+.linkWithIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .links a:hover {
   color: var(--foreground);
 }
@@ -306,6 +312,72 @@
   font-size: 1.12rem;
 }
 
+.certificateGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.certificateCard {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.certificateImageLink {
+  display: block;
+  border-bottom: 1px solid var(--line);
+  background: #f0ebe0;
+}
+
+.certificateImageLink img {
+  display: block;
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.certificateBody {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+}
+
+.certificateBody p {
+  margin: 0;
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.certificateBody h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.2rem;
+}
+
+.certificateBody span {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.certificateBody a {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 38px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--panel);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
 .timeline {
   display: grid;
   gap: 14px;
@@ -363,7 +435,8 @@
 
   .projectGrid,
   .contact,
-  .courseGrid {
+  .courseGrid,
+  .certificateGrid {
     grid-template-columns: 1fr;
   }
 

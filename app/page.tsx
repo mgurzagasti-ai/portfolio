@@ -4,6 +4,7 @@ import {
   Code2,
   Download,
   ExternalLink,
+  GraduationCap,
   Link,
   Mail,
   MapPin,
@@ -27,7 +28,7 @@ const profile = {
 const projects = [
   {
     title: "Sistema de Recursos Humanos",
-    type: "Aplicación web",
+    type: "Aplicacion web",
     description:
       "Herramienta interna para gestionar operaciones de RRHH, seguimiento de partes medicos, licencias, usuarios y dispositivos.",
     stack: ["Next.js", "React", "TypeScript", "SQLite"],
@@ -45,13 +46,22 @@ const projects = [
   },
   {
     title: "Viaje GPS",
-    type: "Aplicación web",
+    type: "Aplicacion web",
     description:
       "Proyecto web para trabajar con viajes y ubicacion GPS, publicado online con despliegue en Vercel.",
     stack: ["Next.js", "React", "GPS", "Vercel"],
     status: "Web publicada",
     liveUrl: "https://viaje-gps.vercel.app",
     repoUrl: "https://github.com/mgurzagasti-ai/viaje-gps",
+  },
+  {
+    title: "Mundial 2026",
+    type: "Aplicacion web",
+    description:
+      "Sitio interactivo sobre el Mundial 2026 con enfoque visual deportivo y despliegue online en Vercel.",
+    stack: ["Next.js", "React", "Vercel"],
+    status: "Web publicada",
+    liveUrl: "https://mundial-2026-red-five.vercel.app/",
   },
   {
     title: "Administracion de redes",
@@ -115,12 +125,38 @@ const experience = [
   {
     title: "Siembra AFJP",
     period: "Ventas",
-    details:
-      "Atencion comercial y seguimiento de clientes.",
+    details: "Atencion comercial y seguimiento de clientes.",
   },
 ];
 
 const courses = ["CCNA", "Java / Next.js", "Bootcamp Java Developer", "Open English (en proceso)"];
+
+const certificates = [
+  {
+    title: "Next Js",
+    issuer: "Coderhouse",
+    date: "11 de diciembre de 2023",
+    image: "/certificados/nextjs-coderhouse.jpeg",
+  },
+  {
+    title: "Java Standard 11 Web Programming",
+    issuer: "EducacionIT",
+    date: "28 de febrero de 2023",
+    image: "/certificados/java-standard11.jpeg",
+  },
+  {
+    title: "Java Developer",
+    issuer: "EducacionIT + Manhattan University",
+    date: "24 de noviembre de 2023",
+    image: "/certificados/java-developer-bootcamp.jpeg",
+  },
+  {
+    title: "React.JS Developer",
+    issuer: "EducacionIT",
+    date: "16 de enero de 2024",
+    image: "/certificados/reactjs-developer.jpeg",
+  },
+];
 
 export default function Home() {
   return (
@@ -129,8 +165,12 @@ export default function Home() {
         <a className={styles.brand} href="#inicio">
           MU
         </a>
-        <nav className={styles.links} aria-label="Navegación principal">
+        <nav className={styles.links} aria-label="Navegacion principal">
           <a href="#trabajos">Trabajos</a>
+          <a className={styles.linkWithIcon} href="#titulos">
+            <GraduationCap size={16} />
+            Titulos
+          </a>
           <a href="#experiencia">Experiencia</a>
           <a href="#contacto">Contacto</a>
         </nav>
@@ -166,7 +206,7 @@ export default function Home() {
 
       <section className={styles.section} id="trabajos">
         <div className={styles.sectionHeader}>
-          <p>Selección</p>
+          <p>Seleccion</p>
           <h2>Trabajos realizados</h2>
         </div>
         <div className={styles.projectGrid}>
@@ -194,7 +234,7 @@ export default function Home() {
                       </a>
                     )}
                   </div>
-                )}
+                    )}
                 <div className={styles.stack}>
                   {project.stack.map((item) => (
                     <small key={item}>{item}</small>
@@ -209,7 +249,7 @@ export default function Home() {
       <section className={styles.band}>
         <div className={styles.bandInner}>
           <div className={styles.sectionHeader}>
-            <p>Perfil técnico</p>
+            <p>Perfil tecnico</p>
             <h2>Herramientas que uso</h2>
           </div>
           <div className={styles.skills}>
@@ -230,6 +270,37 @@ export default function Home() {
             <article className={styles.courseItem} key={course}>
               <Code2 size={20} />
               <h3>{course}</h3>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section} id="titulos">
+        <div className={styles.sectionHeader}>
+          <p>Credenciales</p>
+          <h2>Titulos y certificados</h2>
+        </div>
+        <div className={styles.certificateGrid}>
+          {certificates.map((certificate) => (
+            <article className={styles.certificateCard} key={certificate.title}>
+              <a
+                className={styles.certificateImageLink}
+                href={certificate.image}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Abrir certificado ${certificate.title}`}
+              >
+                <img src={certificate.image} alt={`Certificado ${certificate.title}`} />
+              </a>
+              <div className={styles.certificateBody}>
+                <p>{certificate.issuer}</p>
+                <h3>{certificate.title}</h3>
+                <span>{certificate.date}</span>
+                <a href={certificate.image} target="_blank" rel="noreferrer">
+                  <ExternalLink size={15} />
+                  Ver certificado
+                </a>
+              </div>
             </article>
           ))}
         </div>
