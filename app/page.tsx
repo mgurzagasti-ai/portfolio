@@ -11,7 +11,9 @@ import {
   Phone,
   Sparkles,
 } from "lucide-react";
+import { AdminPanel } from "./AdminPanel";
 import styles from "./page.module.css";
+import { getProjects } from "@/lib/projects";
 
 const profile = {
   name: "Martin Gabriel Urzagasti",
@@ -24,62 +26,6 @@ const profile = {
   summary:
     "Trabajo en redes, administracion de sistemas y soporte tecnico, con experiencia practica resolviendo incidentes, manteniendo conectividad y mejorando procesos internos. Tambien desarrollo soluciones web con Next.js para llevar esa experiencia operativa a herramientas utiles.",
 };
-
-const projects = [
-  {
-    title: "Sistema de Recursos Humanos",
-    type: "Aplicacion web",
-    description:
-      "Herramienta interna para gestionar operaciones de RRHH, seguimiento de partes medicos, licencias, usuarios y dispositivos.",
-    stack: ["Next.js", "React", "TypeScript", "SQLite"],
-    status: "Proyecto destacado",
-  },
-  {
-    title: "Moto Club Jujuy",
-    type: "Sitio web",
-    description:
-      "Creacion de pagina web moderna para Moto Club Jujuy, con presencia publica online y despliegue en Vercel.",
-    stack: ["Next.js", "React", "Vercel"],
-    status: "Web publicada",
-    liveUrl: "https://motoclubjujuy.vercel.app",
-    repoUrl: "https://github.com/mgurzagasti-ai/motoclubjujuy",
-  },
-  {
-    title: "Viaje GPS",
-    type: "Aplicacion web",
-    description:
-      "Proyecto web para trabajar con viajes y ubicacion GPS, publicado online con despliegue en Vercel.",
-    stack: ["Next.js", "React", "GPS", "Vercel"],
-    status: "Web publicada",
-    liveUrl: "https://viaje-gps.vercel.app",
-    repoUrl: "https://github.com/mgurzagasti-ai/viaje-gps",
-  },
-  {
-    title: "Mundial 2026",
-    type: "Aplicacion web",
-    description:
-      "Sitio interactivo sobre el Mundial 2026 con enfoque visual deportivo y despliegue online en Vercel.",
-    stack: ["Next.js", "React", "Vercel"],
-    status: "Web publicada",
-    liveUrl: "https://mundial-2026-red-five.vercel.app/",
-  },
-  {
-    title: "Administracion de redes",
-    type: "Infraestructura",
-    description:
-      "Configuracion, mantenimiento y soporte de conectividad para usuarios y sectores de trabajo.",
-    stack: ["Redes", "Conectividad", "Soporte"],
-    status: "Experiencia laboral",
-  },
-  {
-    title: "Soporte tecnico operativo",
-    type: "Servicio IT",
-    description:
-      "Atencion al usuario, resolucion de incidentes, mantenimiento de equipos y acompanamiento tecnico.",
-    stack: ["Sistemas", "Hardware", "Usuarios"],
-    status: "Trabajo diario",
-  },
-];
 
 const skills = [
   "Next.js",
@@ -158,7 +104,11 @@ const certificates = [
   },
 ];
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const projects = await getProjects();
+
   return (
     <main className={styles.page}>
       <header className={styles.nav}>
@@ -173,6 +123,7 @@ export default function Home() {
           </a>
           <a href="#experiencia">Experiencia</a>
           <a href="#contacto">Contacto</a>
+          <a href="#admin">Admin</a>
         </nav>
       </header>
 
@@ -194,6 +145,10 @@ export default function Home() {
               <Download size={18} />
               CV
             </a>
+            <a className={styles.secondaryButton} href="#admin">
+              <Code2 size={18} />
+              Admin
+            </a>
           </div>
         </div>
         <figure className={styles.profilePhoto}>
@@ -211,7 +166,16 @@ export default function Home() {
         </div>
         <div className={styles.projectGrid}>
           {projects.map((project) => (
-            <article className={styles.projectCard} key={project.title}>
+            <article className={styles.projectCard} key={project.id}>
+              {project.image ? (
+                <div className={styles.projectImageWrap}>
+                  <img
+                    className={styles.projectImage}
+                    src={project.image}
+                    alt={`Vista previa de ${project.title}`}
+                  />
+                </div>
+              ) : null}
               <div>
                 <p className={styles.projectType}>{project.type}</p>
                 <h3>{project.title}</h3>
@@ -363,6 +327,8 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      <AdminPanel projects={projects} />
     </main>
   );
 }

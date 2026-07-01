@@ -1,0 +1,92 @@
+[
+  {
+    "id": "yodaeventos",
+    "title": "YodaEventos",
+    "type": "https://yodas.vercel.app/",
+    "description": "sitio web de empresa de eventos sociales",
+    "status": "publicado",
+    "stack": [
+      "Nextjs"
+    ],
+    "liveUrl": "https://yodas.vercel.app/"
+  },
+  {
+    "id": "sistema-recursos-humanos",
+    "title": "Sistema de Recursos Humanos",
+    "type": "Aplicacion web",
+    "description": "Herramienta interna para gestionar operaciones de RRHH, seguimiento de partes medicos, licencias, usuarios y dispositivos.",
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "SQLite"
+    ],
+    "status": "Proyecto destacado"
+  },
+  {
+    "id": "moto-club-jujuy",
+    "title": "Moto Club Jujuy",
+    "type": "Sitio web",
+    "description": "Creacion de pagina web moderna para Moto Club Jujuy, con presencia publica online y despliegue en Vercel.",
+    "stack": [
+      "Next.js",
+      "React",
+      "Vercel"
+    ],
+    "status": "Web publicada",
+    "liveUrl": "https://motoclubjujuy.vercel.app",
+    "repoUrl": "https://github.com/mgurzagasti-ai/motoclubjujuy"
+  },
+  {
+    "id": "viaje-gps",
+    "title": "Viaje GPS",
+    "type": "Aplicacion web",
+    "description": "Proyecto web para trabajar con viajes y ubicacion GPS, publicado online con despliegue en Vercel.",
+    "stack": [
+      "Next.js",
+      "React",
+      "GPS",
+      "Vercel"
+    ],
+    "status": "Web publicada",
+    "liveUrl": "https://viaje-gps.vercel.app",
+    "repoUrl": "https://github.com/mgurzagasti-ai/viaje-gps"
+  },
+  {
+    "id": "mundial-2026",
+    "title": "Mundial 2026",
+    "type": "Aplicacion web",
+    "description": "Sitio interactivo sobre el Mundial 2026 con enfoque visual deportivo y despliegue online en Vercel.",
+    "stack": [
+      "Next.js",
+      "React",
+      "Vercel"
+    ],
+    "status": "Web publicada",
+    "liveUrl": "https://mundial-2026-red-five.vercel.app/"
+  },
+  {
+    "id": "administracion-de-redes",
+    "title": "Administracion de redes",
+    "type": "Infraestructura",
+    "description": "Configuracion, mantenimiento y soporte de conectividad para usuarios y sectores de trabajo.",
+    "stack": [
+      "Redes",
+      "Conectividad",
+      "Soporte"
+    ],
+    "status": "Experiencia laboral"
+  },
+  {
+    "id": "soporte-tecnico-operativo",
+    "title": "Soporte tecnico operativo",
+    "type": "Servicio IT",
+    "description": "Atencion al usuario, resolucion de incidentes, mantenimiento de equipos y acompanamiento tecnico.",
+    "stack": [
+      "Sistemas",
+      "Hardware",
+      "Usuarios"
+    ],
+    "status": "Trabajo diario"
+  }
+]
